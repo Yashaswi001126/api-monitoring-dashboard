@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api-monitoring-dashboard"
+version = "1.0.0"
+description = "A FastAPI + Streamlit dashboard for monitoring REST API uptime and latency."
+requires-python = ">=3.10"
+
+# ---------------------------------------------------------------------------
+# WHY THIS FILE EXISTS
+# ---------------------------------------------------------------------------
+# This file turns the project into a proper, installable Python package.
+# Running `pip install -e .` once registers the `backend` package with
+# your Python environment (in "editable" mode — it points back at this
+# source folder, so code edits are picked up immediately, no reinstall
+# needed).
+#
+# This is the standard, permanent fix for "ModuleNotFoundError" issues
+# that come from running scripts (like `streamlit run dashboard/app.py`)
+# from different entry points or working directories. Once installed,
+# `from backend.config import ...` works the same way `import pandas`
+# does — from ANY script, ANY working directory — with no sys.path
+# hacks and no manually exporting PYTHONPATH.
+# ---------------------------------------------------------------------------
+
+[tool.setuptools]
+packages = ["backend"]

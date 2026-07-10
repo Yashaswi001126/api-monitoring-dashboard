@@ -1,0 +1,28 @@
+{
+  "apis": [
+    {
+      "name": "GitHub API",
+      "url": "https://api.github.com"
+    },
+    {
+      "name": "JSONPlaceholder",
+      "url": "https://jsonplaceholder.typicode.com/posts/1"
+    },
+    {
+      "name": "PokeAPI",
+      "url": "https://pokeapi.co/api/v2/pokemon/pikachu"
+    },
+    {
+      "name": "HTTPBin (Status 200)",
+      "url": "https://httpbin.org/status/200"
+    },
+    {
+      "name": "Public Holiday API",
+      "url": "https://date.nager.at/api/v3/AvailableCountries"
+    },
+    {
+      "name": "Invalid Demo Endpoint",
+      "url": "https://this-domain-does-not-exist-12345.com"
+    }
+  ]
+}
