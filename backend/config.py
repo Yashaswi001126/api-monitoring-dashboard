@@ -46,7 +46,24 @@ REQUEST_TIMEOUT_SECONDS = 5      # how long to wait before treating a call as a 
 # ---------------------------------------------------------------------------
 API_HOST = "127.0.0.1"
 API_PORT = 8000
-API_BASE_URL = f"http://{API_HOST}:{API_PORT}"
+
+# ---------------------------------------------------------------------------
+# API_BASE_URL: the address the Streamlit dashboard uses to reach the
+# FastAPI backend.
+#
+# Locally, that's just http://127.0.0.1:8000. But once deployed, the
+# dashboard (on Streamlit Cloud) and the backend (on Render) live on
+# two different servers with two different public URLs — there's no
+# "localhost" that connects them.
+#
+# Reading this from an environment variable means:
+#   - Locally: no env var is set, so it falls back to localhost — nothing
+#     changes for you during development.
+#   - Deployed: Streamlit Cloud's "Secrets" (or any env var mechanism)
+#     sets API_BASE_URL to your real Render URL, and this same code picks
+#     it up automatically — no code changes needed between environments.
+# ---------------------------------------------------------------------------
+API_BASE_URL = os.environ.get("API_BASE_URL", f"http://{API_HOST}:{API_PORT}")
 
 # ---------------------------------------------------------------------------
 # Load the list of APIs to monitor from sample_apis.json
